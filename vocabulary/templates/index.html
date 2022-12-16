@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vocabulary</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    <form>
+        {% for english_word in english_words %}
+            <label>
+{#                <input type="checkbox" name="dictionary" value="">#}
+                {{ english_word.eng }} - {{ english_word.rus }}
+                <a href="{% url 'update-english-word' english_word.id %} ">Edit</a>
+                <a href="{% url 'delete-english-word' english_word.id %}">Delete</a>
+            </label>
+            <br>
+        {% endfor %}
+    </form>
+
+    <a href="{% url 'add-english-word' %}">Add word</a>
+
+    <form>
+        {% for wordset in list_of_word_sets %}
+            <label>
+                {{ wordset.name_of_word_set }}
+            </label>
+            <br>
+        {% endfor %}
+    </form>
+
+{% endblock %}
+
+</body>
+</html>

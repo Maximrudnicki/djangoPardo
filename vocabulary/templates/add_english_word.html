@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add word</title>
+</head>
+<body>
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_div }}
+            <input type="submit" />
+        </form>
+    </div>
+
+{% endblock %}
+</body>
+</html>
